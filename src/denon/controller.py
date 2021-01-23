@@ -50,7 +50,7 @@ class AVR:
 
     def get_volume_level(self) -> int:
         vol_level = self.send_command('MV?')
-        return int(vol_level.decode('ascii'))
+        return int(vol_level.decode('ascii')[2:])
 
     def volume_mute(self):
         volume_mute_response = self.send_command('MUON')
